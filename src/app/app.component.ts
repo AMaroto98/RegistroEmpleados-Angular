@@ -6,6 +6,7 @@ import { Empleado } from './empleado.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
 
   titulo = 'Registro de Empleados';
@@ -22,7 +23,8 @@ export class AppComponent {
   cuadroCargo: string = "";
   cuadroSalario: number = 0;
 
-  registrar() {
-
+  registrarEmpleado() {
+    let empleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
+    this.empleados.push(empleado);
   }
 }
