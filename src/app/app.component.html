@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="col"> <h1>{{titulo}}</h1> </div> <br> <br>
+  <div class="col" style="text-align: center; margin-top: 20px;"> <h1>{{titulo}}</h1> </div> <br> <br>
 
   <form class="form-group row">
 
@@ -9,16 +9,32 @@
       <label for="nombre">Nombre: </label>
       <input type="text" name="nombre" id="nombre" placeholder="Alberto" class="form-control" [(ngModel)] = "cuadroNombre"> <br> <br>
 
+    </div>
+
+    <div class="form-group col-md-3">
+
       <label for="apellido">Apellido: </label>
       <input type="text" name="apellido" id="apellido" placeholder="Garcia" class="form-control" [(ngModel)] = "cuadroApellido"> <br> <br>
+
+    </div>
+
+    <div class="form-group col-md-3">
 
       <label for="cargo">Cargo: </label>
       <input type="text" name="cargo" id="cargo" placeholder="Desarrollador" class="form-control" [(ngModel)] = "cuadroCargo"> <br> <br>
 
+    </div>
+
+    <div class="form-group col-md-3">
+
       <label for="salario">Salario: </label>
       <input type="text" name="salario" id="salario" class="form-control" [(ngModel)] = "cuadroSalario"> <br> <br>
 
-      <input type="submit" value="Registrar">
+    </div>
+
+    <div class="form-group col-md-3" style="margin-bottom: 30px;">
+
+      <input type="submit" value="Registrar" (click)="registrarEmpleado()" class="btn btn-primary">
 
     </div>
 
@@ -26,22 +42,28 @@
 
 </div>
 
-
 <div class="container">
-
   <div class="row">
-
-    <div class="col">
-
-      <div *ngFor="let empledo of empleados; let i = index">
-        
-        {{i + 1}} {{empledo.nombre}} {{empledo.apellido}} {{empledo.cargo}} {{empledo.salario}}
-
-      </div>
-
-    </div>
-
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cargo</th>
+          <th>Salario</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of empleados; index as i">
+          <td>{{i + 1}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.apellido}}</td>
+          <td>{{item.cargo}}</td>
+          <td>{{item.salario}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
 </div>
 
